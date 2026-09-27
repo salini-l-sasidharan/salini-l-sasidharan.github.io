@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Salini L — Associate Technology Architect</title>
+<meta name="description" content="Salini L — Associate Technology Architect with 12+ years building scalable, cloud-native backend systems with Node.js, TypeScript, AWS, Kubernetes and Terraform.">
+<meta property="og:title" content="Salini L — Associate Technology Architect">
+<meta property="og:description" content="12+ years building scalable, cloud-native backend systems. Node.js, TypeScript, AWS, Kubernetes, Terraform.">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='22' fill='%230d9488'/><text y='68' x='50' text-anchor='middle' font-size='56' font-family='system-ui' font-weight='700' fill='white'>S</text></svg>">
+<style>
+  :root{
+    --bg:#0a0f1a; --bg-2:#0f1626; --card:#121a2b; --line:#1e2a41;
+    --txt:#e6edf6; --muted:#93a4bd; --dim:#6b7d99;
+    --accent:#2dd4bf; --accent-2:#38bdf8; --accent-dim:rgba(45,212,191,.12);
+    --max:1080px;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    margin:0; background:var(--bg); color:var(--txt);
+    font:16px/1.65 ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:inherit}
+  .wrap{max-width:var(--max);margin:0 auto;padding:0 22px}
+
+  /* ---------- nav ---------- */
+  header{
+    position:sticky;top:0;z-index:50;background:rgba(10,15,26,.82);
+    backdrop-filter:blur(10px);border-bottom:1px solid var(--line);
+  }
+  nav{display:flex;align-items:center;justify-content:space-between;height:60px}
+  .brand{font-weight:700;letter-spacing:.3px;font-size:15px}
+  .brand span{color:var(--accent)}
+  .links{display:flex;gap:22px;font-size:14px;color:var(--muted)}
+  .links a{text-decoration:none;transition:color .15s}
+  .links a:hover{color:var(--accent)}
+  .menu-btn{display:none;background:none;border:1px solid var(--line);color:var(--txt);
+    border-radius:8px;padding:6px 10px;font-size:18px;cursor:pointer}
+  @media(max-width:760px){
+    .links{position:absolute;top:60px;left:0;right:0;background:var(--bg-2);
+      border-bottom:1px solid var(--line);flex-direction:column;gap:0;padding:6px 22px}
+    .links a{padding:11px 0;border-bottom:1px solid var(--line)}
+    .links a:last-child{border-bottom:none}
+    .links[hidden]{display:none}
+    .menu-btn{display:block}
+  }
+
+  /* ---------- hero ---------- */
+  .hero{position:relative;overflow:hidden;padding:76px 0 64px;border-bottom:1px solid var(--line)}
+  .hero::before{
+    content:"";position:absolute;inset:0;
+    background:
+      radial-gradient(760px 340px at 12% -8%, rgba(45,212,191,.16), transparent 62%),
+      radial-gradient(680px 320px at 88% 4%, rgba(56,189,248,.13), transparent 60%);
+    pointer-events:none;
+  }
+  .hero-inner{position:relative;display:grid;grid-template-columns:1fr auto;gap:40px;align-items:center}
+  @media(max-width:760px){.hero-inner{grid-template-columns:1fr;gap:28px}}
+  .eyebrow{
+    display:inline-flex;align-items:center;gap:8px;font-size:12.5px;letter-spacing:.9px;
+    text-transform:uppercase;color:var(--accent);background:var(--accent-dim);
+    border:1px solid rgba(45,212,191,.28);padding:5px 12px;border-radius:999px;margin-bottom:18px;
+  }
+  .dot{width:6px;height:6px;border-radius:50%;background:var(--accent);
+    box-shadow:0 0 0 0 rgba(45,212,191,.6);animation:pulse 2.2s infinite}
+  @keyframes pulse{70%{box-shadow:0 0 0 9px rgba(45,212,191,0)}100%{box-shadow:0 0 0 0 rgba(45,212,191,0)}}
+  h1{margin:0 0 10px;font-size:clamp(30px,5.2vw,46px);line-height:1.12;letter-spacing:-.6px}
+  .role{font-size:clamp(16px,2.4vw,20px);color:var(--accent-2);font-weight:600;margin:0 0 14px}
+  .lede{color:var(--muted);max-width:60ch;margin:0 0 22px;font-size:16.5px}
+  .chips{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:26px}
+  .chip{font-size:12.5px;color:var(--muted);border:1px solid var(--line);
+    background:var(--bg-2);padding:4px 10px;border-radius:7px}
+  .cta{display:flex;flex-wrap:wrap;gap:11px}
+  .btn{
+    display:inline-flex;align-items:center;gap:8px;text-decoration:none;font-size:14.5px;
+    font-weight:600;padding:11px 18px;border-radius:9px;border:1px solid var(--line);
+    background:var(--bg-2);transition:transform .15s,border-color .15s,background .15s;
+  }
+  .btn:hover{transform:translateY(-2px);border-color:var(--accent)}
+  .btn.primary{background:linear-gradient(135deg,var(--accent),var(--accent-2));
+    color:#04121a;border-color:transparent}
+  .avatar{
+    width:172px;height:172px;border-radius:50%;flex:none;display:grid;place-items:center;
+    font-size:60px;font-weight:700;color:#04121a;letter-spacing:-1px;
+    background:linear-gradient(135deg,var(--accent),var(--accent-2));
+    box-shadow:0 0 0 8px rgba(45,212,191,.09);
+  }
+  .avatar img{width:100%;height:100%;border-radius:50%;object-fit:cover}
+
+  /* ---------- sections ---------- */
+  section{padding:66px 0;border-bottom:1px solid var(--line)}
+  .sec-head{margin-bottom:30px}
+  .sec-num{font-size:12.5px;color:var(--accent);letter-spacing:1.4px;font-weight:700}
+  h2{margin:6px 0 0;font-size:clamp(22px,3.4vw,29px);letter-spacing:-.3px}
+  .sec-sub{color:var(--dim);margin:7px 0 0;font-size:14.5px}
+
+  .card{background:var(--card);border:1px solid var(--line);border-radius:13px;padding:22px}
+
+  /* about */
+  .about{display:grid;grid-template-columns:1.55fr 1fr;gap:22px}
+  @media(max-width:860px){.about{grid-template-columns:1fr}}
+  .about p{color:var(--muted);margin:0 0 14px}
+  .about p:last-child{margin-bottom:0}
+  .stats{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  .stat{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px;text-align:center}
+  .stat b{display:block;font-size:26px;color:var(--accent);line-height:1.2}
+  .stat span{font-size:12.5px;color:var(--dim)}
+
+  /* skills */
+  .skills{display:grid;grid-template-columns:repeat(auto-fit,minmax(262px,1fr));gap:15px}
+  .skills h3{margin:0 0 12px;font-size:14px;color:var(--accent);letter-spacing:.5px;text-transform:uppercase}
+  .tags{display:flex;flex-wrap:wrap;gap:6px}
+  .tag{font-size:12.5px;padding:4px 10px;border-radius:6px;background:var(--bg-2);
+    border:1px solid var(--line);color:var(--muted)}
+
+  /* timeline */
+  .tl{position:relative;padding-left:26px}
+  .tl::before{content:"";position:absolute;left:6px;top:6px;bottom:6px;width:2px;
+    background:linear-gradient(var(--accent),transparent)}
+  .job{position:relative;margin-bottom:30px}
+  .job:last-child{margin-bottom:0}
+  .job::before{content:"";position:absolute;left:-26px;top:6px;width:12px;height:12px;
+    border-radius:50%;background:var(--accent);box-shadow:0 0 0 4px rgba(45,212,191,.14)}
+  .job-top{display:flex;flex-wrap:wrap;justify-content:space-between;gap:6px;align-items:baseline}
+  .job h3{margin:0;font-size:17.5px}
+  .job .when{font-size:13px;color:var(--dim);white-space:nowrap}
+  .job .co{color:var(--accent-2);font-size:14.5px;margin:3px 0 4px;font-weight:600}
+  .roles{font-size:12.5px;color:var(--dim);font-style:italic;margin:0 0 11px}
+  .job ul{margin:0;padding-left:17px;color:var(--muted);font-size:14.5px}
+  .job li{margin-bottom:6px}
+
+  /* projects */
+  .projects{display:grid;grid-template-columns:repeat(auto-fit,minmax(310px,1fr));gap:17px}
+  .proj{display:flex;flex-direction:column;transition:transform .16s,border-color .16s}
+  .proj:hover{transform:translateY(-4px);border-color:var(--accent)}
+  .proj .kind{font-size:11.5px;letter-spacing:1px;text-transform:uppercase;color:var(--accent);font-weight:700}
+  .proj h3{margin:8px 0 10px;font-size:18px}
+  .proj ul{margin:0 0 15px;padding-left:17px;color:var(--muted);font-size:14px}
+  .proj li{margin-bottom:5px}
+  .stack{margin-top:auto;display:flex;flex-wrap:wrap;gap:5px;padding-top:12px;border-top:1px solid var(--line)}
+  .stack span{font-size:11.5px;color:var(--dim);background:var(--bg-2);
+    border:1px solid var(--line);padding:3px 8px;border-radius:5px}
+
+  /* education + achievements */
+  .two{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+  @media(max-width:860px){.two{grid-template-columns:1fr}}
+  .edu{margin-bottom:15px}
+  .edu:last-child{margin-bottom:0}
+  .edu b{display:block;font-size:15.5px}
+  .edu span{color:var(--dim);font-size:13.5px}
+  .ach{list-style:none;margin:0;padding:0}
+  .ach li{position:relative;padding-left:24px;margin-bottom:12px;color:var(--muted);font-size:14.5px}
+  .ach li:last-child{margin-bottom:0}
+  .ach li::before{content:"▸";position:absolute;left:0;top:-1px;color:var(--accent);font-size:15px}
+
+  /* contact */
+  .contact{text-align:center;padding:74px 0}
+  .contact h2{margin-bottom:10px}
+  .contact p{color:var(--muted);max-width:52ch;margin:0 auto 26px}
+  footer{padding:26px 0;text-align:center;color:var(--dim);font-size:13px}
+
+  /* reveal */
+  .rv{opacity:0;transform:translateY(16px);transition:opacity .5s ease,transform .5s ease}
+  .rv.in{opacity:1;transform:none}
+  @media(prefers-reduced-motion:reduce){
+    .rv{opacity:1;transform:none;transition:none}
+    html{scroll-behavior:auto}
+    .dot{animation:none}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <nav>
+      <div class="brand">SALINI<span>.L</span></div>
+      <button class="menu-btn" id="menuBtn" aria-label="Menu" aria-expanded="false">☰</button>
+      <div class="links" id="links">
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#experience">Experience</a>
+        <a href="#projects">Projects</a>
+        <a href="#education">Education</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<!-- ================= HERO ================= -->
+<div class="hero">
+  <div class="wrap hero-inner">
+    <div>
+      <div class="eyebrow"><span class="dot"></span> Open to new opportunities</div>
+      <h1>Salini L</h1>
+      <p class="role">Associate Technology Architect — Backend, Cloud &amp; Distributed Systems</p>
+      <p class="lede">
+        12+ years designing and delivering scalable, cloud-native backend systems.
+        I own architecture, API design, database modelling and AWS infrastructure for a
+        multi-product health-tech suite serving iOS, Android and Web.
+      </p>
+      <div class="chips">
+        <span class="chip">Node.js</span><span class="chip">TypeScript</span>
+        <span class="chip">AWS</span><span class="chip">Kubernetes</span>
+        <span class="chip">Terraform</span><span class="chip">PostgreSQL</span>
+        <span class="chip">Microservices</span><span class="chip">HIPAA / GDPR</span>
+      </div>
+      <div class="cta">
+        <a class="btn primary" href="mailto:salinil.sasidharan@gmail.com">✉ Get in touch</a>
+        <a class="btn" href="resume.pdf" target="_blank" rel="noopener">⇩ Resume</a>
+        <a class="btn" href="https://www.linkedin.com/in/salini-l-sasidharan" target="_blank" rel="noopener">in LinkedIn</a>
+        <a class="btn" href="https://github.com/salini-l-sasidharan" target="_blank" rel="noopener">◆ GitHub</a>
+      </div>
+    </div>
+    <div class="avatar" id="avatar">SL</div>
+  </div>
+</div>
+
+<!-- ================= ABOUT ================= -->
+<section id="about">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <div class="sec-num">01</div>
+      <h2>About</h2>
+    </div>
+    <div class="about rv">
+      <div class="card">
+        <p>
+          I build backend systems that run reliably in the cloud. My work centres on
+          Node.js, TypeScript and Express, on AWS — REST API design, microservice-style
+          architectures, event-driven patterns with SNS and SQS, and Infrastructure as
+          Code with Terraform, Docker and Kubernetes.
+        </p>
+        <p>
+          Over the last few years I have led CI/CD adoption that cut deployment time by 60%,
+          established observability with Datadog and Prometheus that reduced production
+          defects by 40%, and led HIPAA and GDPR compliance across the platform.
+        </p>
+        <p>
+          More recently I have been building custom AI agents into our backend codebase to
+          automate repetitive development work, and I mentor 10–12 engineers each year while
+          working with a cross-functional team of around 22 people.
+        </p>
+      </div>
+      <div class="stats">
+        <div class="stat"><b>12+</b><span>Years experience</span></div>
+        <div class="stat"><b>60%</b><span>Faster deployments</span></div>
+        <div class="stat"><b>40%</b><span>Fewer prod defects</span></div>
+        <div class="stat"><b>10–12</b><span>Engineers mentored / yr</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= SKILLS ================= -->
+<section id="skills">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <div class="sec-num">02</div>
+      <h2>Technical Skills</h2>
+      <p class="sec-sub">The stack I design, build and operate with day to day.</p>
+    </div>
+    <div class="skills">
+      <div class="card rv"><h3>Languages</h3><div class="tags">
+        <span class="tag">Node.js</span><span class="tag">TypeScript</span>
+        <span class="tag">JavaScript</span><span class="tag">PHP</span></div></div>
+
+      <div class="card rv"><h3>Backend &amp; APIs</h3><div class="tags">
+        <span class="tag">Express.js</span><span class="tag">REST APIs</span>
+        <span class="tag">Microservices</span><span class="tag">Event-Driven Architecture</span>
+        <span class="tag">System Design</span><span class="tag">Laravel</span></div></div>
+
+      <div class="card rv"><h3>Cloud &amp; DevOps</h3><div class="tags">
+        <span class="tag">AWS EC2</span><span class="tag">S3</span><span class="tag">Lambda</span>
+        <span class="tag">RDS</span><span class="tag">Cognito</span><span class="tag">SNS / SQS</span>
+        <span class="tag">CloudWatch</span><span class="tag">Cloudflare</span>
+        <span class="tag">Docker</span><span class="tag">Kubernetes (EKS)</span>
+        <span class="tag">Terraform</span><span class="tag">GitHub Actions</span>
+        <span class="tag">Checkov</span></div></div>
+
+      <div class="card rv"><h3>Data</h3><div class="tags">
+        <span class="tag">PostgreSQL</span><span class="tag">MySQL</span>
+        <span class="tag">MongoDB</span><span class="tag">Redis</span>
+        <span class="tag">Sequelize</span><span class="tag">Drizzle ORM</span></div></div>
+
+      <div class="card rv"><h3>Observability &amp; Testing</h3><div class="tags">
+        <span class="tag">Datadog</span><span class="tag">Prometheus</span>
+        <span class="tag">Pino</span><span class="tag">Jest</span>
+        <span class="tag">Vitest</span><span class="tag">Supertest</span></div></div>
+
+      <div class="card rv"><h3>Security &amp; Compliance</h3><div class="tags">
+        <span class="tag">AWS Cognito (JWT)</span><span class="tag">OAuth2</span>
+        <span class="tag">App Attestation</span><span class="tag">reCAPTCHA Enterprise</span>
+        <span class="tag">Helmet</span><span class="tag">Rate Limiting</span>
+        <span class="tag">HIPAA</span><span class="tag">GDPR</span></div></div>
+
+      <div class="card rv"><h3>AI-Assisted Development</h3><div class="tags">
+        <span class="tag">AI Coding Agents</span><span class="tag">Agentic Workflows</span>
+        <span class="tag">Prompt Engineering</span></div></div>
+
+      <div class="card rv"><h3>Frontend</h3><div class="tags">
+        <span class="tag">React</span><span class="tag">HTML</span>
+        <span class="tag">CSS</span><span class="tag">jQuery</span></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= EXPERIENCE ================= -->
+<section id="experience">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <div class="sec-num">03</div>
+      <h2>Experience</h2>
+      <p class="sec-sub">12+ years across health-tech, e-governance and enterprise platforms.</p>
+    </div>
+    <div class="tl">
+
+      <div class="job rv">
+        <div class="job-top">
+          <h3>Associate Technology Architect</h3>
+          <span class="when">May 2019 — Present</span>
+        </div>
+        <div class="co">Experion Technologies (India) Pvt. Ltd. · Trivandrum</div>
+        <p class="roles">
+          Associate Technology Architect (Jun 2025 – Present) · Technology Lead (Jan 2022 – May 2025)
+          · Lead Software Engineer (May 2021 – Dec 2021) · Software Engineer (May 2019 – Apr 2021)
+        </p>
+        <ul>
+          <li>Own end-to-end backend architecture and cloud infrastructure for a multi-product
+              health-tech suite spanning chronic care, maternal &amp; child health and a unified
+              health platform, across iOS, Android and Web.</li>
+          <li>Lead backend architecture, API design, database modelling and AWS/Cloudflare
+              infrastructure using Terraform-based Infrastructure as Code.</li>
+          <li>Drove CI/CD adoption with GitHub Actions, reducing deployment time by 60%.</li>
+          <li>Established observability with Datadog and Prometheus, reducing production defects by 40%.</li>
+          <li>Led HIPAA and GDPR compliance; initiated App Attestation across three applications
+              and enforced Checkov IaC security scanning in CI.</li>
+          <li>Led AWS cost optimisation through right-sizing, storage lifecycle policies and
+              removal of idle resources.</li>
+          <li>Built custom AI agents into the backend codebase to automate repetitive development workflows.</li>
+          <li>Mentor 10–12 engineers annually; collaborate across a ~22-member cross-functional team.</li>
+        </ul>
+      </div>
+
+      <div class="job rv">
+        <div class="job-top">
+          <h3>Senior Software Engineer</h3>
+          <span class="when">Jul 2016 — May 2019</span>
+        </div>
+        <div class="co">Naga Info Solutions Pvt. Ltd. · Trivandrum</div>
+        <ul>
+          <li>Developed backend APIs and web applications across CRM, social networking and
+              e-commerce product lines.</li>
+          <li>Built RESTful APIs with Node.js, Express.js, PHP and Laravel, integrated with
+              AWS services (EC2, S3, RDS).</li>
+          <li>Worked across MySQL, PostgreSQL and MongoDB, delivering production-grade features
+              on tight timelines.</li>
+        </ul>
+      </div>
+
+      <div class="job rv">
+        <div class="job-top">
+          <h3>Programmer — National Informatics Centre (NIC)</h3>
+          <span class="when">Aug 2014 — Jun 2016</span>
+        </div>
+        <div class="co">Government of India · via NIC-empaneled partners</div>
+        <ul>
+          <li>Developed and maintained critical e-governance systems under NIC, Ministry of
+              Communications and Information Technology.</li>
+          <li>Delivered a statewide board examination platform — among Asia's largest — supporting
+              approximately 500,000 candidates annually.</li>
+          <li>Payrolled by NIC-empaneled partners Neelkanth Digital Infonet and Velocis Systems.</li>
+        </ul>
+      </div>
+
+      <div class="job rv">
+        <div class="job-top">
+          <h3>Software Engineer</h3>
+          <span class="when">Dec 2013 — Aug 2014</span>
+        </div>
+        <div class="co">Zyntegra Solutions Pvt. Ltd. · Kochi</div>
+        <ul>
+          <li>Developed web applications using PHP and MySQL; contributed to UI, API and
+              database modules.</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ================= PROJECTS ================= -->
+<section id="projects">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <div class="sec-num">04</div>
+      <h2>Selected Projects</h2>
+      <p class="sec-sub">Client names are withheld. Descriptions focus on architecture and outcomes.</p>
+    </div>
+    <div class="projects">
+
+      <div class="card proj rv">
+        <div class="kind">Healthcare · Architecture &amp; Backend</div>
+        <h3>Unified Health Platform</h3>
+        <ul>
+          <li>Owned the architecture of a centralised platform consolidating shared services
+              across multiple products, defining service boundaries and shared data models.</li>
+          <li>Architected a dynamic role and permission model with constraint-based access
+              control and country-level overrides, on AWS Cognito (JWT).</li>
+          <li>Defined platform-wide cross-cutting concerns — Redis rate limiting and response
+              caching, Datadog observability, automated testing baseline.</li>
+        </ul>
+        <div class="stack">
+          <span>Node.js 24</span><span>TypeScript</span><span>Express 5</span>
+          <span>PostgreSQL</span><span>Drizzle ORM</span><span>Redis</span>
+          <span>AWS Cognito</span><span>Datadog</span><span>Vitest</span><span>React 19</span>
+        </div>
+      </div>
+
+      <div class="card proj rv">
+        <div class="kind">Healthcare · Mobile &amp; Web</div>
+        <h3>Maternal &amp; Child Health Platform</h3>
+        <ul>
+          <li>Led backend and infrastructure development for a platform serving iOS, Android
+              and Web clients.</li>
+          <li>Owned infrastructure on AWS and Cloudflare, including Kubernetes (EKS) deployments
+              and Terraform-based Infrastructure as Code.</li>
+          <li>Integrated third-party services and established automated testing with Jest
+              across backend modules.</li>
+        </ul>
+        <div class="stack">
+          <span>Node.js 20</span><span>TypeScript</span><span>Express 5</span>
+          <span>PostgreSQL</span><span>Sequelize</span><span>Redis</span>
+          <span>Kubernetes (EKS)</span><span>Terraform</span><span>Docker</span><span>Datadog</span>
+        </div>
+      </div>
+
+      <div class="card proj rv">
+        <div class="kind">Healthcare · Mobile &amp; Web</div>
+        <h3>Chronic Care Management Platform</h3>
+        <ul>
+          <li>Built backend functionality for chronic condition care — health tracking,
+              consultations, appointment booking, lab reports and prescriptions.</li>
+          <li>Designed and maintained AWS infrastructure (EC2, S3, Cognito, SNS, SQS) using
+              Terraform with Checkov-based IaC security scanning.</li>
+          <li>Built a custom observability stack integrating Prometheus metrics, Datadog APM
+              and Pino structured logging.</li>
+        </ul>
+        <div class="stack">
+          <span>Node.js 24</span><span>TypeScript</span><span>Express 5</span>
+          <span>PostgreSQL</span><span>Redis</span><span>AWS</span>
+          <span>Prometheus</span><span>Datadog</span><span>Terraform</span><span>Checkov</span>
+        </div>
+      </div>
+
+      <div class="card proj rv">
+        <div class="kind">Public Sector · Web</div>
+        <h3>Integrated Examination Management System</h3>
+        <ul>
+          <li>Developed and maintained one of Asia's largest board examination systems,
+              handling approximately 500,000 candidates annually.</li>
+          <li>Delivered candidate registration, marks collection, hall ticket issuance,
+              centralised valuation, tabulation, result publication and revaluation.</li>
+          <li>Also delivered a teacher-education examination module.</li>
+        </ul>
+        <div class="stack">
+          <span>PHP</span><span>jQuery</span><span>Ajax</span>
+          <span>PostgreSQL</span><span>Apache</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ================= EDUCATION + ACHIEVEMENTS ================= -->
+<section id="education">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <div class="sec-num">05</div>
+      <h2>Education &amp; Recognition</h2>
+    </div>
+    <div class="two">
+      <div class="card rv">
+        <h3 style="margin:0 0 15px;font-size:14px;color:var(--accent);letter-spacing:.5px;text-transform:uppercase">Education</h3>
+        <div class="edu">
+          <b>Master of Computer Applications (MCA)</b>
+          <span>University of Kerala · 2010 – 2013</span>
+        </div>
+        <div class="edu">
+          <b>B.Sc. Mathematics</b>
+          <span>University of Kerala · 2007 – 2010</span>
+        </div>
+      </div>
+      <div class="card rv">
+        <h3 style="margin:0 0 15px;font-size:14px;color:var(--accent);letter-spacing:.5px;text-transform:uppercase">Recognition</h3>
+        <ul class="ach">
+          <li>Rewards &amp; Recognition (R&amp;R) award at Experion Technologies for outstanding
+              performance on the health-tech platform.</li>
+          <li>Recognised by leadership for proactive ownership during security and compliance audits.</li>
+          <li>Initiated and led App Attestation adoption across three applications, eliminating
+              automated bot traffic against public endpoints.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CONTACT ================= -->
+<section id="contact" class="contact">
+  <div class="wrap">
+    <div class="sec-num rv">06</div>
+    <h2 class="rv">Let's talk</h2>
+    <p class="rv">
+      I'm open to new opportunities in backend, cloud and platform engineering —
+      in Bangalore, Hyderabad, Pune, Chennai, Kerala or remote.
+    </p>
+    <div class="cta rv" style="justify-content:center">
+      <a class="btn primary" href="mailto:salinil.sasidharan@gmail.com">✉ salinil.sasidharan@gmail.com</a>
+      <a class="btn" href="https://www.linkedin.com/in/salini-l-sasidharan" target="_blank" rel="noopener">in LinkedIn</a>
+      <a class="btn" href="https://github.com/salini-l-sasidharan" target="_blank" rel="noopener">◆ GitHub</a>
+      <a class="btn" href="resume.pdf" target="_blank" rel="noopener">⇩ Resume</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">© <span id="yr"></span> Salini L · Trivandrum, Kerala, India</div>
+</footer>
+
+<script>
+  document.getElementById('yr').textContent = new Date().getFullYear();
+
+  // mobile menu
+  var btn = document.getElementById('menuBtn'), links = document.getElementById('links');
+  function sizeMenu(){ links.hidden = window.innerWidth <= 760; btn.setAttribute('aria-expanded','false'); }
+  sizeMenu();
+  window.addEventListener('resize', sizeMenu);
+  btn.addEventListener('click', function(){
+    links.hidden = !links.hidden;
+    btn.setAttribute('aria-expanded', String(!links.hidden));
+  });
+  links.addEventListener('click', function(e){
+    if (e.target.tagName === 'A' && window.innerWidth <= 760) links.hidden = true;
+  });
+
+  // reveal on scroll
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(en){ if(en.isIntersecting){ en.target.classList.add('in'); io.unobserve(en.target); } });
+  }, {threshold:.12, rootMargin:'0px 0px -40px'});
+  document.querySelectorAll('.rv').forEach(function(el){ io.observe(el); });
+
+  // swap initials for a photo if profile.jpg exists
+  var img = new Image();
+  img.onload = function(){
+    var a = document.getElementById('avatar');
+    a.textContent = '';
+    a.appendChild(img);
+  };
+  img.alt = 'Salini L';
+  img.src = 'profile.jpg';
+</script>
+</body>
+</html>
